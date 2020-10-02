@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 class="card-title">Guzman A.</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 class="card-title">Casquete L.</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 class="card-title">Contreras J.</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 class="card-title">Aquino M.</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 class="card-title">Diaz D.</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
                                 </div>

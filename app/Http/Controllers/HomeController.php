@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        switch (auth()->user()->rol) {
+
+            case 'Estudiante':
+                return view('student');
+                break;
+
+            case 'Administrador':
+                return view('home');
+                break;
+
+            case '':
+                return view('invitado');
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public function perfil()
+    {
+        return view('perfil');
     }
 }
