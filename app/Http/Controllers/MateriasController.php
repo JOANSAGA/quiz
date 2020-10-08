@@ -10,39 +10,35 @@ class MateriasController extends Controller
 
     protected function create()
     {
-        $this->validate(
-            request(),
-            [
-                'nombreMateria' => 'required',
-                'nivel' => 'required',
-                'descripcion' => 'required',
-            ],
-            [
-                'nombreMateria.required' => "El campo nombre es requerido",
-                'nivel.required' => "El campo nivel es requerido",
-                'descripcion.required' => "El campo descripcion es requerido"
-            ]
-        );
-
         Materias::create([
             'nombreMateria' => request('nombreMateria'),
             'nivel' => request('nivel'),
             'descripcion' => request('descripcion'),
             'estado' => 'A',
         ]);
-
-        return back();
+        return 'success';
     }
 
-    public function inactivar()
+    public function inactivar($_id)
     {
-        Materias::where('_id', '=', request('_id'))->delete();
-        return back()->with(['mensaje' => 'Datos del estudiante eliminados con exito']);
+        $materias = Materias::find($_id);
+        $materias->update([
+            'estado' => 'I'
+        ]);
+        return 'success';
+    }
+    public function activar($_id)
+    {
+        $materias = Materias::find($_id);
+        $materias->update([
+            'estado' => 'A'
+        ]);
+        return 'success';
     }
 
-    public function getMateria()
+    public function getMateria($status)
     {
-        $data = Materias::paginate(5);
+        $data = Materias::where('estado', '=', $status)->paginate(5);
         return [
             'pagination' => [
                 'total' => $data->total(),

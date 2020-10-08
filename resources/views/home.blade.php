@@ -11,21 +11,21 @@
                             aria-controls="examen" aria-selected="true">Examenes</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="preguntas-tab" data-toggle="tab" href="#preguntas" role="tab"
+                        <a class="nav-link active" id="preguntas-tab" data-toggle="tab" href="#preguntas" role="tab"
                             aria-controls="preguntas" aria-selected="false">Preguntas</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="materia-tab" data-toggle="tab" href="#materia" role="tab"
+                        <a class="nav-link" id="materia-tab" data-toggle="tab" href="#materia" role="tab"
                             aria-controls="materia" aria-selected="false">Materias</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade" id="examen" role="tabpanel" aria-labelledby="examen-tab">
                         @include('partials/examen')</div>
-                    <div class="tab-pane fade" id="preguntas" role="tabpanel" aria-labelledby="preguntas-tab">
+                    <div class="tab-pane fade show active" id="preguntas" role="tabpanel" aria-labelledby="preguntas-tab">
                         @include('partials/preguntas')
                     </div>
-                    <div class="tab-pane fade show active" id="materia" role="tabpanel" aria-labelledby="materia-tab">
+                    <div class="tab-pane fade" id="materia" role="tabpanel" aria-labelledby="materia-tab">
                         @include('partials/materia')
                     </div>
                 </div>

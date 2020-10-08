@@ -12,7 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @toastr_css
+    <link rel="stylesheet" href="css/toastr.min.css">
+    <!--@toastr_css-->
 </head>
 
 <body>
@@ -65,8 +66,9 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('perfil') }}">Mi perfil</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -85,7 +87,6 @@
         <main class="py-4">
             @yield('content')
         </main>
-
         <footer class="fixed-bottom">
             <nav class="navbar navbar-dark bg-dark justify-content-center">
                 <div class="row">
@@ -100,6 +101,10 @@
 </body>
 
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/js/toastr.min.js"></script>
+<!-- 
+
 @jquery
 @toastr_js
 @toastr_render
@@ -141,5 +146,6 @@
         toastr.error('{{ $myerror }}');
     </script>
 @endif
+-->
 
 </html>

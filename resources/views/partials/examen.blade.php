@@ -40,18 +40,16 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Preguntas</label>
                         <div class="col-sm-6">
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com">
+                            <input type="email" class="form-control" id="" placeholder="name@example.com">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Nombre:</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
+                        <label for="nombre">Nombre:</label>
+                        <input type="email" class="form-control" id="nombre" placeholder="name@example.com">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Example select</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <label for="select1">Example select</label>
+                        <select class="form-control" id="select1">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -60,8 +58,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect2">Example multiple select</label>
-                        <select multiple class="form-control" id="exampleFormControlSelect2">
+                        <label for="selec">Example multiple select</label>
+                        <select multiple class="form-control" id="selec">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -70,8 +68,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="">Example textarea</label>
+                        <textarea class="form-control" id="" rows="3"></textarea>
                     </div>
                 </form>
             </div>

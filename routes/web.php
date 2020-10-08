@@ -18,8 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/perfil', 'HomeController@perfil')->name('perfil');
+
+
+Route::get('/getMateria{status}', 'MateriasController@getMateria')->name('getMateria');
 Route::post('/newMateria', 'MateriasController@create')->name('newMateria');
-Route::get('/getMateria', 'MateriasController@getMateria')->name('getMateria');
-Route::post('/inactivarMateria', 'MateriasController@inactivar')->name('inactivarMateria');
+Route::post('/inactivarMateria{_id}', 'MateriasController@inactivar');
+Route::post('/activarMateria{_id}', 'MateriasController@activar');
