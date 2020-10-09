@@ -10,6 +10,7 @@
           class="btn btn-primary btn-block"
           data-toggle="modal"
           data-target="#materiaModal"
+          v-on:click="cls()"
         >
           Nueva Materia
         </button>
@@ -24,7 +25,7 @@
           v-model.trim="status"
           @change="getMaterias($event)"
         />
-        <label for="uno" class="ml-2">Activos</label>
+        <label for="uno" class="">Activos</label>
         <input
           type="radio"
           id="Dos"
@@ -33,7 +34,7 @@
           class="ml-2"
           @change="getMaterias($event)"
         />
-        <label for="Dos" class="ml-2">Inactivos</label>
+        <label for="Dos" class="">Inactivos</label>
         <hr />
       </div>
     </div>
@@ -51,7 +52,7 @@
       >
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="materiaModalLabel">Crear Materia</h5>
+            <h5 class="modal-title" id="materiaModalLabel">Materia</h5>
             <button
               type="button"
               class="close"
@@ -94,7 +95,7 @@
                       id="nivel"
                       v-model="formData.nivel"
                     >
-                      <option value="">Selecciona nivel..-</option>
+                      <option value="">Selecciona nivel...</option>
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -112,10 +113,10 @@
                 class="btn btn-secondary"
                 data-dismiss="modal"
               >
-                Close
+                Cerrar
               </button>
               <button type="submit" class="btn btn-primary">
-                Save changes
+                Guardar
               </button>
             </div>
           </form>
@@ -143,7 +144,7 @@
               <button
                 v-if="status === 'A'"
                 class="btn-success btn btn-sm mr-2"
-                v-on:click="editMateria(att._id)"
+                v-on:click="editMateria(att)"
               >
                 Editar
               </button>
@@ -215,6 +216,7 @@ export default {
       data: {},
       status: "A",
       formData: {
+        _id: "",
         nombreMateria: "",
         descripcion: "",
         nivel: "",
@@ -261,7 +263,7 @@ export default {
   },
   methods: {
     getKeeps: function (page) {
-      var urlKeeps = "/getMateria?page=" + page;
+      var urlKeeps = "/getMateria" + this.status + "?page=" + page;
 
       fetch(urlKeeps)
         .then(function (response) {
@@ -278,10 +280,12 @@ export default {
     activaMateria: function (id) {
       var url = "/activarMateria" + id;
       this.changeEstadoMateria(url);
+      toastr.success("Materia activada");
     },
     inactivaMateria: function (id) {
       var url = "/inactivarMateria" + id;
       this.changeEstadoMateria(url);
+      toastr.success("Materia inactivada");
     },
     changeEstadoMateria: function (url) {
       axios
@@ -294,37 +298,70 @@ export default {
           console.log("error: " + error);
         });
     },
-    editMateria: function (id) {
-      alert(id);
+    editMateria: function (item) {
+      $("#materiaModal").modal("show");
+      console.log(item);
+      this.formData._id = item._id;
+      this.formData.nombreMateria = item.nombreMateria;
+      this.formData.descripcion = item.descripcion;
+      this.formData.nivel = item.nivel;
+    },
+    validarElemento: function (variable) {
+      if (variable == "") {
+        toastr.warning(variable + "no debe estar vacio");
+        return false;
+      } else {
+        return true;
+      }
+    },
+    cls: function () {
+        this.formData._id = "";
+        this.formData.nombreMateria = "";
+        this.formData.descripcion = "";
+        this.formData.nivel = "";
     },
     addMateria: function () {
-      var url = "/newMateria";
+      var elementoNulo = false;
       if (this.formData.nombreMateria == "") {
-        console.log("formData.nombreMateria esta nulo");
+        toastr.warning("Nombre no debe estar vacio");
+        elementoNulo = true;
       }
-      if (this.formData.nombreMateria == "") {
-        console.log("formData.descripcion esta nulo");
+      if (this.formData.descripcion == "") {
+        toastr.warning("descripcion no debe estar vacio");
+        elementoNulo = true;
       }
-      if (this.formData.nombreMateria == "") {
-        console.log("formData.nivel esta nulo");
+      if (this.formData.nivel == "") {
+        toastr.warning("nivel no debe estar vacio");
+        elementoNulo = true;
       }
-      axios
-        .post(url, this.formData)
-        .then((response) => {
-          this.getMaterias();
-          this.formData.nombreMateria = "";
-          this.formData.descripcion = "";
-          this.formData.nivel = "";
-          //console.log(response);
-          toastr.warning("hola");
-        })
-        .catch((error) => {
-          console.log("error: " + error);
-        });
+
+      if (!elementoNulo && this.formData._id == "") {
+        var url = "/newMateria";
+        this.saveChanges(url);
+      }
+      if (!elementoNulo && this.formData._id != "") {
+        //aqui llama a otra funcion para editar la materia 
+        var url = "/editMateria";
+        this.saveChanges(url);
+      }
     },
-    /*async checkStado() {
-      this.getMaterias(this.status);
-    },*/
+    saveChanges: function (url) {
+      axios
+          .post(url, this.formData)
+          .then((response) => {
+            this.getMaterias();
+            this.formData.nombreMateria = "";
+            this.formData.descripcion = "";
+            this.formData.nivel = "";
+            //console.log(response);
+            toastr.success("Elemento guardado");
+            $("#materiaModal").modal("hide");
+          })
+          .catch((error) => {
+            console.log("error: " + error);
+            toastr.error("error: " + error);
+          });
+    },
     getMaterias: function () {
       var url = "/getMateria" + this.status;
       this.data = {};

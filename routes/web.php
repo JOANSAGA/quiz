@@ -25,3 +25,4 @@ Route::get('/getMateria{status}', 'MateriasController@getMateria')->name('getMat
 Route::post('/newMateria', 'MateriasController@create')->name('newMateria');
 Route::post('/inactivarMateria{_id}', 'MateriasController@inactivar');
 Route::post('/activarMateria{_id}', 'MateriasController@activar');
+Route::post('/editMateria', 'MateriasController@editMateria');

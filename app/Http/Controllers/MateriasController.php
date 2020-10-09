@@ -18,6 +18,16 @@ class MateriasController extends Controller
         ]);
         return 'success';
     }
+    public function editMateria()
+    {
+        $materias = Materias::find(request('_id'));
+        $materias->update([
+            'nombreMateria' => request('nombreMateria'),
+            'nivel' => request('nivel'),
+            'descripcion' => request('descripcion'),
+        ]);
+        return 'success';
+    }
 
     public function inactivar($_id)
     {
