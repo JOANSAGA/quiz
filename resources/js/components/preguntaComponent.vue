@@ -33,7 +33,7 @@
       >
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="preguntaModalLabel">Crear pregunta</h5>
+            <h5 class="modal-title" id="preguntaModalLabel">pregunta</h5>
             <button
               type="button"
               class="close"
@@ -46,47 +46,60 @@
           <div class="modal-body">
             <form action="" method="post">
               <div class="form-group row pt-3">
-                <label for="" class="col-sm-2 col-form-label">Pregunta</label>
-                <div class="">
+                <label for="pregunta" class="col-sm-2 col-form-label"
+                  >Pregunta</label
+                >
+                <div class="w-75">
                   <input
                     type="text"
                     class="form-control"
-                    id=""
+                    id="pregunta"
+                    v-model="formData.pregunta"
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label for="">Nombre:</label>
+                <label for="litA">Respuesta A:</label>
                 <input
                   type="email"
                   class="form-control"
-                  id=""
-                  placeholder="name@example.com"
+                  id="litA"
+                  v-model="formData.litA"
                 />
               </div>
               <div class="form-group">
-                <label for="">Example select</label>
-                <select class="form-control" id="">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                <label for="litA">Respuesta B:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="litB"
+                  v-model="formData.litB"
+                />
               </div>
               <div class="form-group">
-                <label for="">Example multiple select</label>
-                <select multiple class="form-control" id="">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                <label for="litA">Respuesta C:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="litC"
+                  v-model="formData.litC"
+                />
               </div>
               <div class="form-group">
-                <label for="">Example textarea</label>
-                <textarea class="form-control" id="" rows="3"></textarea>
+                <label for="litA">Respuesta D:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="litD-input"
+                  v-model="formData.litD"
+                />
+                <textarea
+                  class="form-control"
+                  id="litD-textarea"
+                  rows="3"
+                  v-model="formData.litD"
+                  hidden
+                ></textarea>
               </div>
             </form>
           </div>
@@ -107,7 +120,29 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      data: {},
+      status: "A",
+      formData: {
+        pregunta: "",
+        litA: "",
+        litB: "",
+        litC: "",
+        litD: "",
+      },
+      pagination: {
+        total: 0,
+        current_page: 0,
+        per_page: 0,
+        last_page: 0,
+        from: 0,
+        to: 0,
+      },
+    };
+  },
+};
 </script>
 
 <style>
