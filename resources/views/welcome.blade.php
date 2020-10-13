@@ -16,17 +16,17 @@
         <nav class="navbar navbar-light shadow bg-white">
             <div class="container justify-content-end">
                 @if (Route::has('login'))
-                <div class="">
-                    @auth
-                    <a href="{{ url('/home') }}" class="navbar-brand">Home</a>
-                    @else
-                    <a href="{{ route('login') }}" class="navbar-brand">Login</a>
+                    <div class="">
+                        @auth
+                            <a href="{{ url('/home') }}" class="navbar-brand">Home</a>
+                        @else
+                            <a href="{{ route('login') }}" class="navbar-brand">Iniciar sesión</a>
 
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="navbar-brand">Register</a>
-                    @endif
-                    @endauth
-                </div>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="navbar-brand">Registrarse</a>
+                            @endif
+                        @endauth
+                    </div>
                 @endif
             </div>
         </nav>
@@ -36,11 +36,18 @@
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-9">
                     <p class="text-justify">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, rerum? Et, debitis impedit autem tempora repudiandae optio saepe voluptatum obcaecati ducimus, quis harum! Quas dolorem eligendi pariatur vitae dolor ab!
-                        Vero error, vitae asperiores cumque quidem hic temporibus odio. Aliquid tempore sequi quos odio modi ad cum voluptas! Id incidunt consequuntur impedit voluptas sed expedita saepe quod eaque ipsum eum.
-                        Odio, dolor quaerat! Cupiditate rem impedit nostrum, dolorem magnam sapiente? Tempore dolorem numquam, voluptatem ipsam asperiores sit magni minus earum accusantium expedita error voluptatum animi nisi nemo quidem officia pariatur?
-                        Alias velit dignissimos nihil temporibus? Ipsam unde in autem eveniet veniam eum atque adipisci libero labore perferendis distinctio corrupti, explicabo, nam voluptatum similique voluptatem deleniti minima aut error? Nobis, exercitationem!
-                        Iusto earum sit facere minima, cumque sapiente possimus sequi, porro accusamus veritatis tempore quod voluptatibus dignissimos dolor, exercitationem provident. Reiciendis fuga excepturi ipsa magni aperiam nam praesentium animi similique autem.</p>
+                        Debido a la era digital y en la que se vive, los sistemas son herramientas necesarias para
+                        incorporarlas en las estrategias de enseñanza - aprendizaje. Un sistema web que puede ser usado
+                        como una herramienta que facilite los procesos de enseñanza y aprendizaje. Por lo tanto este
+                        proyecto se desarrolla con la finalidad de poder involucrar a la Escuela Fiscal "Divicion d
+                        Infanteria No.3 Guayas"con la tecnología y la innovación de la educación, a través de
+                        entrevistas y observación se determina una carencia en las materias, por falta de motivación ya
+                        que en estos tiempos los niños no pueden ir a dar examenes de manera presencial en la
+                        institucion, la investigación de la educación con la tecnología se promueve para involucrar a
+                        los niños con juegos y con gamificación. Ante la necesidad de recursos para incorporar un
+                        sistema que permita el aprendizaje de las materias en los estudiantes de la unidad educativa, se
+                        justifica el desarrollo de este proyecto.
+                    </p>
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <img src="/img/logo.png" class="figure-img img-fluid rounded" alt="" sizes="" srcset="">
@@ -55,12 +62,13 @@
                         <div class="card mb-3">
                             <div class="row no-gutters">
                                 <div class="col-md-4 align-middle">
-                                    <img src="/img/perfil.jpg" class="figure-img img-fluid rounded card-img pt-3" alt="" sizes="" srcset="">
+                                    <img src="/img/guzman2.jpg" class="figure-img img-fluid rounded card-img pt-3"
+                                        alt="" sizes="" srcset="">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Guzman A.</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"></p>
                                     </div>
                                 </div>
                             </div>
@@ -70,12 +78,13 @@
                         <div class="card mb-3">
                             <div class="row no-gutters">
                                 <div class="col-md-4 align-middle">
-                                    <img src="/img/perfil.jpg" class="figure-img img-fluid rounded card-img pt-3" alt="" sizes="" srcset="">
+                                    <img src="/img/casquete2.jpg" class="figure-img img-fluid rounded card-img pt-3"
+                                        alt="" sizes="" srcset="">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Casquete L.</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"></p>
                                     </div>
                                 </div>
                             </div>
@@ -85,12 +94,13 @@
                         <div class="card mb-3">
                             <div class="row no-gutters">
                                 <div class="col-md-4 align-middle">
-                                    <img src="/img/perfil.jpg" class="figure-img img-fluid rounded card-img pt-3" alt="" sizes="" srcset="">
+                                    <img src="/img/contreras2.jpg" class="figure-img img-fluid rounded card-img pt-3"
+                                        alt="" sizes="" srcset="">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Contreras J.</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"></p>
                                     </div>
                                 </div>
                             </div>
@@ -100,12 +110,13 @@
                         <div class="card mb-3">
                             <div class="row no-gutters">
                                 <div class="col-md-4 align-middle">
-                                    <img src="/img/perfil.jpg" class="figure-img img-fluid rounded card-img pt-3" alt="" sizes="" srcset="">
+                                    <img src="/img/aquino2.jpg" class="figure-img img-fluid rounded card-img pt-3"
+                                        alt="" sizes="" srcset="">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Aquino M.</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"></p>
                                     </div>
                                 </div>
                             </div>
@@ -115,12 +126,13 @@
                         <div class="card mb-3">
                             <div class="row no-gutters">
                                 <div class="col-md-4 align-middle">
-                                    <img src="/img/perfil.jpg" class="figure-img img-fluid rounded card-img pt-3" alt="" sizes="" srcset="">
+                                    <img src="/img/diaz2.jpg" class="figure-img img-fluid rounded card-img pt-3" alt=""
+                                        sizes="" srcset="">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Diaz D.</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"></p>
                                     </div>
                                 </div>
                             </div>
