@@ -1,12 +1,17 @@
 <template>
   <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Materias</li>
+      </ol>
+    </nav>
     <div class="row d-flex justify-content-center">
       <div
         class="col-auto pt-3"
         v-for="materia in materias"
         v-bind:key="materia.id"
       >
-        <div class="card" style="width: 15rem">
+        <div class="card" style="width: 17rem">
           <div class="card-body">
             <h5 class="card-title text-capitalize text-center">
               {{ materia.nombreMateria }}
@@ -17,8 +22,18 @@
                 class="list-group-item list-group-item-action"
                 v-for="examen in examenes"
                 v-bind:key="examen.id"
+                v-if="examen.materia == materia.nombreMateria"
+                v-on:click="goExam(examen._id)"
               >
-                {{ examen.materia }}
+                Inicio del examen:
+                <br />{{ examen.inicio }}
+                <br />
+                <div class="d-flex justify-content-end">
+                  <span class="small pr-2">Duración: </span>
+                  <span class="badge badge-pill badge-secondary">
+                    {{ examen.tiempo }} Min
+                  </span>
+                </div>
               </a>
             </div>
           </div>
@@ -45,15 +60,6 @@
             </a>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-auto">
-        <ul v-for="examen in examenes" v-bind:key="examen.id">
-          <li>
-            {{ examen }}
-          </li>
-        </ul>
       </div>
     </div>
     <div
@@ -146,6 +152,14 @@ export default {
           this.listarExamen();
         });
       //toastr.success("Hola");
+    },
+    goExam: function (_id) {
+      let url = "/examen/" + _id;
+      // Abrir nuevo tab
+      var win = window.open(url, "_blank");
+      // Cambiar el foco al nuevo tab (punto opcional)
+      console.log(url);
+      win.focus();
     },
     nuevaMateria: function () {
       $("#estMateriasModal").modal("show");

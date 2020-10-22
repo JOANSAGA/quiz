@@ -24,6 +24,7 @@ Vue.component('pregunta-component', require('./components/preguntaComponent.vue'
 Vue.component('examen-component', require('./components/examenComponent.vue').default);
 Vue.component('usuarios-component', require('./components/usuariosComponent.vue').default);
 Vue.component('estmateria-component', require('./components/estmateriaComponent.vue').default);
+Vue.component('miexamen-component', require('./components/miexamenComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

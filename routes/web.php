@@ -45,5 +45,12 @@ Route::post('/activarExamen{_id}', 'ExamenController@activar');
 Route::get('/getUsuario', 'UsuarioController@getUsuario')->name('getUsuario');
 Route::post('/editUsuario', 'UsuarioController@editUsuario');
 Route::get('/userData', 'UsuarioController@userData');
+
 //Usuario/estudiante
 Route::post('/addMateriaEst', 'UsuarioController@addMateriaEst');
+
+//Examen
+Route::get('/examen/{id}', 'ExamenController@goExamen')->name('examen');
+Route::get('/getExamen/{id}', 'ExamenController@getExamenEst');
+Route::get('/cargarPreguntas/{preguntas}', 'PreguntaController@cargarPreguntas');
+Route::post('/saveExamen', 'ExamenController@saveExamen');

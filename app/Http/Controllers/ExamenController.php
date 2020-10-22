@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Examen;
+use App\registroExamen;
+
 
 class ExamenController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     protected function create()
     {
         Examen::create([
@@ -65,6 +72,26 @@ class ExamenController extends Controller
             'tiempo' => request('tiempo'),
             'materia' => request('materia'),
             'items' => request('items'),
+        ]);
+        return 'success';
+    }
+
+    protected function goExamen($id)
+    {
+        $Examen = Examen::find($id);
+        return view('student',  ['Examen' => $Examen]);
+    }
+    protected function getExamenEst($id)
+    {
+        $Examen = Examen::find($id);
+        return ['data' => $Examen];
+    }
+    protected function saveExamen()
+    {
+        $Examen = registroExamen::create([
+            'idEsrudiante' => auth()->user()->_id,
+            'idexamen' => request('idexamen'),
+            'respuestas' => request('respuestas'),
         ]);
         return 'success';
     }

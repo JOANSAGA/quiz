@@ -2,11 +2,10 @@
 
 @section('content')
     <div class="container pb-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Materias</li>
-            </ol>
-        </nav>
+        @if (isset($Examen))
+        <miexamen-component _id="{{$Examen->_id}}"></miexamen-component>
+        @else
         <estmateria-component></estmateria-component>
+        @endif
     </div>
 @endsection

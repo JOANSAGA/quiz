@@ -7,6 +7,10 @@ use App\Preguntas;
 
 class PreguntaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     protected function create()
     {
         Preguntas::create([
@@ -77,5 +81,12 @@ class PreguntaController extends Controller
                 'nombre' => auth()->user()->name
             ]
         ];
+    }
+
+    protected function cargarPreguntas($preguntas)
+    {
+        $preguntas = explode(",", $preguntas);
+        $data = Preguntas::whereIn('_id', $preguntas)->get();
+        return ['data' => $data];
     }
 }
