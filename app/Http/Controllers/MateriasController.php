@@ -18,7 +18,7 @@ class MateriasController extends Controller
         ]);
         return 'success';
     }
-    public function editMateria()
+    protected function editMateria()
     {
         $materias = Materias::find(request('_id'));
         $materias->update([
@@ -29,7 +29,7 @@ class MateriasController extends Controller
         return 'success';
     }
 
-    public function inactivar($_id)
+    protected function inactivar($_id)
     {
         $materias = Materias::find($_id);
         $materias->update([
@@ -37,7 +37,7 @@ class MateriasController extends Controller
         ]);
         return 'success';
     }
-    public function activar($_id)
+    protected function activar($_id)
     {
         $materias = Materias::find($_id);
         $materias->update([
@@ -46,7 +46,7 @@ class MateriasController extends Controller
         return 'success';
     }
 
-    public function getMateria($status)
+    protected function getMateria($status)
     {
         $data = Materias::where('estado', '=', $status)->paginate(5);
         return [

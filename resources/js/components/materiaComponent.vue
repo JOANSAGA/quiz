@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-between pb-2">
-      <div class="col-3 align-middle">
+      <div class="col-5 align-middle">
         <h4>Listado de materias:</h4>
       </div>
       <div class="col-2">
@@ -16,26 +16,32 @@
         </button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <input
-          type="radio"
-          id="uno"
-          value="A"
-          v-model.trim="status"
-          @change="getMaterias($event)"
-        />
-        <label for="uno" class="">Activos</label>
-        <input
-          type="radio"
-          id="Dos"
-          value="I"
-          v-model.trim="status"
-          class="ml-2"
-          @change="getMaterias($event)"
-        />
-        <label for="Dos" class="">Inactivos</label>
-        <hr />
+    <div class="row pb-3">
+      <div class="col-auto">
+        <div class="custom-control custom-radio">
+          <input
+            id="matStatusA"
+            value="A"
+            type="radio"
+            class="custom-control-input"
+            v-model.trim="status"
+            @change="getMaterias($event)"
+          />
+          <label class="custom-control-label" for="matStatusA">Activos</label>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="custom-control custom-radio">
+          <input
+            id="matStatusI"
+            value="I"
+            type="radio"
+            class="custom-control-input"
+            v-model.trim="status"
+            @change="getMaterias($event)"
+          />
+          <label class="custom-control-label" for="matStatusI">Inactivos</label>
+        </div>
       </div>
     </div>
     <div
@@ -115,9 +121,7 @@
               >
                 Cerrar
               </button>
-              <button type="submit" class="btn btn-primary">
-                Guardar
-              </button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
           </form>
         </div>
@@ -258,9 +262,6 @@ export default {
       return pagesArray;
     },
   },
-  mounted() {
-    console.log("Component mounted.");
-  },
   methods: {
     getKeeps: function (page) {
       var urlKeeps = "/getMateria" + this.status + "?page=" + page;
@@ -315,10 +316,10 @@ export default {
       }
     },
     cls: function () {
-        this.formData._id = "";
-        this.formData.nombreMateria = "";
-        this.formData.descripcion = "";
-        this.formData.nivel = "";
+      this.formData._id = "";
+      this.formData.nombreMateria = "";
+      this.formData.descripcion = "";
+      this.formData.nivel = "";
     },
     addMateria: function () {
       var elementoNulo = false;
@@ -340,27 +341,27 @@ export default {
         this.saveChanges(url);
       }
       if (!elementoNulo && this.formData._id != "") {
-        //aqui llama a otra funcion para editar la materia 
+        //aqui llama a otra funcion para editar la materia
         var url = "/editMateria";
         this.saveChanges(url);
       }
     },
     saveChanges: function (url) {
       axios
-          .post(url, this.formData)
-          .then((response) => {
-            this.getMaterias();
-            this.formData.nombreMateria = "";
-            this.formData.descripcion = "";
-            this.formData.nivel = "";
-            //console.log(response);
-            toastr.success("Elemento guardado");
-            $("#materiaModal").modal("hide");
-          })
-          .catch((error) => {
-            console.log("error: " + error);
-            toastr.error("error: " + error);
-          });
+        .post(url, this.formData)
+        .then((response) => {
+          this.getMaterias();
+          this.formData.nombreMateria = "";
+          this.formData.descripcion = "";
+          this.formData.nivel = "";
+          //console.log(response);
+          toastr.success("Elemento guardado");
+          $("#materiaModal").modal("hide");
+        })
+        .catch((error) => {
+          console.log("error: " + error);
+          toastr.error("error: " + error);
+        });
     },
     getMaterias: function () {
       var url = "/getMateria" + this.status;

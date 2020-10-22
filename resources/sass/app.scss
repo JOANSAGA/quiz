@@ -1,8 +1,42 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.mySeccion {
+    height: 11em;
+}
+
+.myScroll {
+    overflow-y: auto;
+}
+
+.myScroll::-webkit-scrollbar {
+    width: 8px;
+    /* Tamaño del scroll en vertical */
+    height: auto;
+    /* Tamaño del scroll en horizontal */
+    /* Ocultar scroll */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+
+.myScroll::-webkit-scrollbar-thumb {
+    background: #6cb2eb;
+    border-radius: 4px;
+}
+
+.myScroll::-webkit-scrollbar-track {
+    background: #3490dc;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active */
+
+.myScroll::-webkit-scrollbar-thumb:active {
+    background-color: #38c172;
+}

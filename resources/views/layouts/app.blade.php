@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="css/toastr.min.css">
@@ -103,49 +100,4 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="/js/jquery-3.5.1.min.js"></script>
 <script src="/js/toastr.min.js"></script>
-<!-- 
-
-@jquery
-@toastr_js
-@toastr_render
-
-@if ($errors->has('error'))
-    @foreach ($errors->get('error') as $error)
-        <script>
-            toastr.error('{{ $error }}');
-
-        </script>
-    @endforeach
-@endif
-
-@if ($errors->has('warning'))
-    @foreach ($errors->get('warning') as $error)
-        <script>
-            toastr.warning('{{ $error }}');
-        </script>
-    @endforeach
-@endif
-
-@if ($errors->any())
-    @foreach ($errors->all() as $error)
-        <script type="text/javascript">
-            toastr.error('{{ $error }}');
-
-        </script>
-    @endforeach
-@endif
-
-@if (session('mensaje'))
-    <script type="text/javascript">
-        toastr.success('{{ $mensaje }}');
-    </script>
-@endif
-
-@if (session('myerror'))
-    <script type="text/javascript">
-        toastr.error('{{ $myerror }}');
-    </script>
-@endif
--->
-
 </html>

@@ -11,11 +11,11 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 use Jenssegers\Mongodb\Eloquent\Model as MongoModel;
- 
+
 class User extends MongoModel implements Authenticatable, CanResetPasswordContract
 //class User extends Authenticatable
 {
-    use AuthenticatableTrait,CanResetPassword,Notifiable;
+    use AuthenticatableTrait, CanResetPassword, Notifiable;
 
     /*
      *
@@ -24,7 +24,7 @@ class User extends MongoModel implements Authenticatable, CanResetPasswordContra
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'rol',
+        'name', 'email', 'password', 'rol', 'materias',
     ];
 
     /**
